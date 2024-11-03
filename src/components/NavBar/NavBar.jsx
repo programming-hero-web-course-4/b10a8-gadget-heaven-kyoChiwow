@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
-const NavBar = () => {
+import PropTypes from "prop-types";
+const NavBar = ({ checkHome }) => {
   const links = (
     <>
       <li className="hover:bg-purple-500 transition duration-300 p-2 rounded-3xl">
@@ -78,15 +79,28 @@ const NavBar = () => {
       {/* Navbar header info and icons */}
 
       {/* NavBar Banner here */}
-      <div className="text-center max-w-[85%] mx-auto">
-        <h1 className="font-bold mt-12 text-white text-5xl leading-[72px]">Upgrade Your Tech Accessorize with Gadget Heaven Accessories</h1>
-        <p className="text-base font-normal text-white mt-6 mb-8 leading-6">Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
-        <button className="bg-white px-8 py-4 rounded-full hover:bg-gray-300 transition duration-300 font-bold text-xl text-purpleBg">Shop Now</button>
-      </div>
+      {checkHome && (
+        <div className="text-center max-w-[85%] mx-auto">
+          <h1 className="font-bold mt-12 text-white text-5xl leading-[72px]">
+            Upgrade Your Tech Accessorize with Gadget Heaven Accessories
+          </h1>
+          <p className="text-base font-normal text-white mt-6 mb-8 leading-6">
+            Explore the latest gadgets that will take your experience to the
+            next level. From smart devices to the coolest accessories, we have
+            it all!
+          </p>
+          <button className="bg-white px-8 py-4 rounded-full hover:bg-gray-300 transition duration-300 font-bold text-xl text-purpleBg">
+            Shop Now
+          </button>
+        </div>
+      )}
       {/* NavBar Banner here */}
     </div>
     //  Section: Navbar Here
   );
 };
 
+NavBar.propTypes = {
+  checkHome: PropTypes.bool.isRequired,
+};
 export default NavBar;
