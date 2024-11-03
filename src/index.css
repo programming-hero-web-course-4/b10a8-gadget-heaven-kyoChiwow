@@ -1,0 +1,15 @@
+/* Google Fonts Settings */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+/* Google Fonts Settings */
+
+/* Using Google Font */
+body {
+    font-family: 'Sora';
+}
+/* Using Google Font */
+
+/* Tailwind Settings */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Tailwind Settings */
