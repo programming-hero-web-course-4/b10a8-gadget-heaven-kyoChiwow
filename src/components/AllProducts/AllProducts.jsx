@@ -3,6 +3,25 @@ import Product from "../Product/Product";
 
 const AllProducts = () => {
     const [allProducts, setAllProducts] = useState([]);
+    const [getCategory, setGetCategory] = useState("All Products");
+
+    // Function for Handing Category
+    const handleCategory = (category) => {
+        setGetCategory(category);
+    }
+
+    // Checking the Category here
+    const checkingCategory = getCategory === "All Products";
+    const displayCategory = checkingCategory ? allProducts : allProducts.filter(product => product.category === getCategory)
+
+    // Creating Array for the Category
+    const newArrayCategory = [];
+    allProducts.forEach(product => {
+        if(!newArrayCategory.includes(product.category)) {
+            newArrayCategory.push(product.category);
+        }
+    })
+
     useEffect(() => {
         fetch('gadgetsData.json')
         .then(res => res.json())
@@ -18,28 +37,21 @@ const AllProducts = () => {
                     <button className="bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300">
                         <p>All Product</p>
                     </button>
-                    <button className="bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300">
-                        <p>Smart Phone</p>
-                    </button>
-                    <button className="bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300">
-                        <p>Smart Watch</p>
-                    </button>
-                    <button className="bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300">
-                        <p>Tablet</p>
-                    </button>
-                    <button className="bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300">
-                        <p>Laptop</p>
-                    </button>
-                    <button className="bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300">
-                        <p>Headphone</p>
-                    </button>
-                    <button className="bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300">
-                        <p>Camera</p>
-                    </button>
+                   {
+                        newArrayCategory.map((category, idx) => (
+                            <button 
+                            key={idx}
+                            onClick={() => handleCategory(category)}
+                            className={getCategory === category ? "bg-purpleBg text-white font-extrabold text-left py-3 pl-7 rounded-[32px]" : "bg-grayFivep text-left py-3 pl-7 rounded-[32px] hover:bg-slate-600 transition duration-300"}
+                            >
+                                <p>{category}</p>
+                            </button>
+                        ))
+                   }
                 </div>
                 {/* All Categories Div */}
                 {/* All Products Div */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     {
                         allProducts.map(product => <Product key={product.product_id} product={product}></Product>)
                     }
