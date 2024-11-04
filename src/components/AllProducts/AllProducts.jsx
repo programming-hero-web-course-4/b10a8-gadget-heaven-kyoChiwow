@@ -28,12 +28,12 @@ const AllProducts = () => {
         .then(data => setAllProducts(data))
     })
     return (
-        <div className="xl:mt-[490px] mb-24">
+        <div className="xl:mt-[490px] lg:mt-[350px] mt-20 mb-24">
             <h1 className="text-black font-bold text-4xl text-center mb-12">Explore Cutting-Edge Gadgets</h1>
             {/* All products Wrapping Div */}
-            <div className="flex gap-8">
+            <div className="flex lg:flex-row flex-col items-center lg:items-start gap-8">
                 {/* All Categories Div */}
-                <div className="bg-white w-[20%] p-6 rounded-2xl flex flex-col gap-6 max-h-[530px]">
+                <div className="bg-white w-[70%] xl:w-[20%] lg:w-[30%] md:w-[40%] p-6 rounded-2xl flex flex-col gap-6 max-h-[530px]">
                    {
                         newArrayCategory.map((category, idx) => (
                             <button 

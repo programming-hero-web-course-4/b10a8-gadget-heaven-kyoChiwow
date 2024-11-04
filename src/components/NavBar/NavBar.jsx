@@ -66,12 +66,12 @@ const NavBar = ({ checkHome }) => {
     <div
       className={
         checkHome
-          ? "bg-purpleBg rounded-[32px] lg:w-[95%] mx-auto relative"
-          : "lg:w-[95%] mx-auto relative"
+          ? "bg-purpleBg rounded-[32px] w-[95%] lg:w-[95%] mx-auto relative"
+          : "lg:w-[95%] w-[95%] mx-auto relative"
       }
     >
       {/* Navbar header info and icons */}
-      <div className="flex justify-between items-center px-32 pt-6">
+      <div className="flex justify-between items-center px-4 lg:px-8 xl:px-32 pt-6">
         {/* Navbar Header */}
         <div className="">
           <h1
@@ -87,9 +87,13 @@ const NavBar = ({ checkHome }) => {
         {/* Navbar Header */}
 
         {/* Navbar Menus */}
-        <div className="">
-          <ul className="flex items-center gap-12">{links}</ul>
-        </div>
+
+          {/* Desktop Menus */}
+          <div className="hidden lg:flex">
+            <ul className="flex items-center gap-12">{links}</ul>
+          </div>
+          {/* Desktop Menus */}
+
         {/* Navbar Menus */}
 
         {/* Navbar Cart and Wishlist icons */}
@@ -112,7 +116,7 @@ const NavBar = ({ checkHome }) => {
 
       {/* NavBar Banner here */}
       {checkHome && (
-        <div className="text-center max-w-[85%] mx-auto pb-64">
+        <div className="text-center max-w-[85%] mx-auto pb-6 lg:pb-64">
           <h1 className="font-bold mt-12 text-white text-5xl leading-[72px]">
             Upgrade Your Tech Accessorize with Gadget Heaven Accessories
           </h1>
@@ -130,7 +134,7 @@ const NavBar = ({ checkHome }) => {
 
       {/* Nav banner Image */}
       {checkHome && (
-        <div className="absolute xl:w-[70%] left-[15%] top-[65%] p-6 backdrop:blur-md bg-whiteThirtyp rounded-[32px] border-2 border-white">
+        <div className="hidden lg:block absolute lg:w-[70%] left-[15%] top-[65%] p-6 backdrop:blur-md bg-whiteThirtyp rounded-[32px] border-2 border-white">
           <div>
             <img
               className="xl:max-h-[620px] w-full rounded-3xl object-cover"

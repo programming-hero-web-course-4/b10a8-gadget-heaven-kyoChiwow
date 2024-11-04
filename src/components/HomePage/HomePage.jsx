@@ -2,7 +2,7 @@ import AllProducts from "../AllProducts/AllProducts";
 
 const HomePage = () => {
     return (
-        <div className="lg:max-w-[80%] mx-auto">
+        <div className="xl:max-w-[80%] lg:max-w-[90%] max-w-[95%] mx-auto">
             <AllProducts></AllProducts>
         </div>
     );
