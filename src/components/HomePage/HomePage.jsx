@@ -1,7 +1,9 @@
+import AllProducts from "../AllProducts/AllProducts";
+
 const HomePage = () => {
     return (
-        <div>
-            <h1>Home Page here</h1>
+        <div className="lg:max-w-[80%] mx-auto">
+            <AllProducts></AllProducts>
         </div>
     );
 };

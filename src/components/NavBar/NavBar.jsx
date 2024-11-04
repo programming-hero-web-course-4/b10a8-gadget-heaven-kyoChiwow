@@ -8,11 +8,17 @@ const NavBar = ({ checkHome }) => {
       <li className="hover:bg-purple-500 transition duration-300 p-2 rounded-3xl">
         <NavLink
           to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "text-white font-bold text-base underline"
-              : "font-medium no-underline text-base text-white"
-          }
+          className={({ isActive }) => {
+            if (isActive && checkHome) {
+              return "text-white font-bold text-base underline";
+            } else if (!isActive && checkHome) {
+              return "font-medium no-underline text-base text-white";
+            } else if (isActive && !checkHome) {
+              return "text-purpleBg text-xl font-bold";
+            } else if (!isActive && !checkHome) {
+              return "text-graySixtyp font-medium text-base";
+            }
+          }}
         >
           Home
         </NavLink>
@@ -20,11 +26,17 @@ const NavBar = ({ checkHome }) => {
       <li className="hover:bg-purple-500 transition duration-300 p-2 rounded-3xl">
         <NavLink
           to="/dashboard"
-          className={({ isActive }) =>
-            isActive
-              ? "text-white font-bold text-base underline"
-              : "font-medium no-underline text-base text-white"
-          }
+          className={({ isActive }) => {
+            if (isActive && checkHome) {
+              return "text-white font-bold text-base underline";
+            } else if (!isActive && checkHome) {
+              return "font-medium no-underline text-base text-white";
+            } else if (isActive && !checkHome) {
+              return "text-purpleBg text-xl font-bold";
+            } else if (!isActive && !checkHome) {
+              return "text-graySixtyp font-medium text-base";
+            }
+          }}
         >
           Dashboard
         </NavLink>
@@ -32,11 +44,17 @@ const NavBar = ({ checkHome }) => {
       <li className="hover:bg-purple-500 transition duration-300 p-2 rounded-3xl">
         <NavLink
           to="/statistics"
-          className={({ isActive }) =>
-            isActive
-              ? "text-white font-bold text-base underline"
-              : "font-medium no-underline text-base text-white"
-          }
+          className={({ isActive }) => {
+            if (isActive && checkHome) {
+              return "text-white font-bold text-base underline";
+            } else if (!isActive && checkHome) {
+              return "font-medium no-underline text-base text-white";
+            } else if (isActive && !checkHome) {
+              return "text-purpleBg text-xl font-bold";
+            } else if (!isActive && !checkHome) {
+              return "text-graySixtyp font-medium text-base";
+            }
+          }}
         >
           Statistics
         </NavLink>
@@ -45,31 +63,45 @@ const NavBar = ({ checkHome }) => {
   );
   return (
     //  Section: Navbar Here
-    <div className="bg-purpleBg lg:max-w-[95%] mx-auto rounded-[32px] mt-7">
+    <div
+      className={
+        checkHome
+          ? "bg-purpleBg rounded-[32px] lg:max-w-[95%] mx-auto relative"
+          : "lg:max-w-[95%] mx-auto mt-7 relative"
+      }
+    >
       {/* Navbar header info and icons */}
       <div className="flex justify-between items-center px-32 pt-6">
         {/* Navbar Header */}
         <div className="">
-          <h1 className="text-white font-bold text-xl">Gadget Heaven</h1>
+          <h1
+            className={
+              checkHome
+                ? "text-white font-bold text-xl"
+                : "text-black font-bold text-xl"
+            }
+          >
+            Gadget Heaven
+          </h1>
         </div>
         {/* Navbar Header */}
 
         {/* Navbar Menus */}
         <div className="">
-          <ul className="flex gap-12">{links}</ul>
+          <ul className="flex items-center gap-12">{links}</ul>
         </div>
         {/* Navbar Menus */}
 
         {/* Navbar Cart and Wishlist icons */}
         <div className="flex items-center gap-4">
           {/* cart */}
-          <button className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl">
+          <button className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
             <BsCart3></BsCart3>
           </button>
           {/* cart */}
 
           {/* Wishlist */}
-          <button className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl">
+          <button className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
             <FaRegHeart></FaRegHeart>
           </button>
           {/* Wishlist */}
@@ -80,7 +112,7 @@ const NavBar = ({ checkHome }) => {
 
       {/* NavBar Banner here */}
       {checkHome && (
-        <div className="text-center max-w-[85%] mx-auto">
+        <div className="text-center max-w-[85%] mx-auto pb-64">
           <h1 className="font-bold mt-12 text-white text-5xl leading-[72px]">
             Upgrade Your Tech Accessorize with Gadget Heaven Accessories
           </h1>
@@ -95,6 +127,20 @@ const NavBar = ({ checkHome }) => {
         </div>
       )}
       {/* NavBar Banner here */}
+
+      {/* Nav banner Image */}
+      {checkHome && (
+        <div className="absolute xl:w-[70%] left-[15%] top-[65%] p-6 backdrop:blur-md bg-whiteThirtyp rounded-[32px] border-2 border-white">
+          <div>
+            <img
+              className="xl:max-h-[620px] w-full rounded-3xl object-cover"
+              src="/public/assets/banner.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      )}
+      {/* Nav banner Image */}
     </div>
     //  Section: Navbar Here
   );

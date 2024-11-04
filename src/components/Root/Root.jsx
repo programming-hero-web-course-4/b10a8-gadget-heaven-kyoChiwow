@@ -4,9 +4,14 @@ import NavBar from "../NavBar/NavBar";
 
 const Root = () => {
     const location = useLocation();
+    // Checking Home Location
     const checkHome = location.pathname === "/";
+    // Checking Home Location
+
+    // Checking Dashboard Location
+    // Checking Dashboard Location
     return (
-        <div>
+        <div className="pt-7">
             <NavBar checkHome={checkHome}></NavBar>
             <Outlet></Outlet>
             <Footer></Footer>

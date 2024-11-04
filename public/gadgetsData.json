@@ -68,7 +68,7 @@
     {
       "product_id": 201,
       "product_title": "MacBook Air M2",
-      "product_image": "https://i.ibb.co.com/FwVFF8b/Mac-Book-Air-M2.jpg",
+      "product_image": "https://i.ibb.co.com/tCc5HNL/Mac-Book-Air-M2.png",
       "category": "Laptops",
       "price": 1199,
       "description": "Ultra-thin, light laptop with powerful M2 chip.",
@@ -134,7 +134,7 @@
     {
       "product_id": 303,
       "product_title": "Microsoft Surface Pro 9",
-      "product_image": "https://i.ibb.co.com/yQvxCFQ/Microsoft-Surface-Pro-9.jpg",
+      "product_image": "https://i.ibb.co.com/YTVdYgR/Microsoft-Surface-Pro-9.png",
       "category": "Tablets",
       "price": 999,
       "description": "Versatile tablet-laptop hybrid with Intel Evo platform.",
@@ -167,7 +167,7 @@
     {
       "product_id": 402,
       "product_title": "Samsung Galaxy Watch 6",
-      "product_image": "https://i.ibb.co.com/09nZk5N/Samsung-Galaxy-Watch-6.jpg",
+      "product_image": "https://i.ibb.co.com/pXnxwZV/Samsung-Galaxy-Watch-6.png",
       "category": "Smart Watches",
       "price": 299,
       "description": "Elegant smartwatch with robust health features.",

@@ -8,7 +8,9 @@ export default {
     extend: {
       colors: {
         purpleBg: "#9538E2",
-        graySixtyp: "#09080F99"
+        graySixtyp: "#09080F99",
+        whiteThirtyp: "#FFFFFF4D",
+        grayFivep: "#09080F0D",
       },
     },
   },
