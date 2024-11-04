@@ -66,8 +66,8 @@ const NavBar = ({ checkHome }) => {
     <div
       className={
         checkHome
-          ? "bg-purpleBg rounded-[32px] lg:max-w-[95%] mx-auto relative"
-          : "lg:max-w-[95%] mx-auto mt-7 relative"
+          ? "bg-purpleBg rounded-[32px] lg:w-[95%] mx-auto relative"
+          : "lg:w-[95%] mx-auto relative"
       }
     >
       {/* Navbar header info and icons */}
