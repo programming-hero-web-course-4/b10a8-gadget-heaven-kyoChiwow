@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const Product = ({ product }) => {
-  const { product_id, product_title, product_image, category, price } = product;
+  const { product_id, product_title, product_image, price } = product;
   return (
     <div>
       {/* Card Wrapping Div */}
@@ -26,14 +26,16 @@ const Product = ({ product }) => {
         </div>
         {/* Name and Price Div */}
         {/* Details Button */}
+        <div className="mb-5">
           <Link
             to={`/allproducts/${product_id}`}
-            className="border-2 border-purpleBg rounded-[32px] py-3 px-5 xl:max-w-[45%] hover:bg-purple-200 transition duration-300"
+            className="border-2 border-purpleBg rounded-[32px] mb-5 py-3 px-5 xl:max-w-[45%] hover:bg-purple-200 transition duration-300"
           >
             <span className="font-semibold text-lg text-purpleBg">
               View Details
             </span>
           </Link>
+        </div>
         {/* Details Button */}
       </div>
       {/* Card Wrapping Div */}
