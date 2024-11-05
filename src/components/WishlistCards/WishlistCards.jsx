@@ -30,6 +30,7 @@ const WishlistCards = ({ product }) => {
             <p className="text-grayEightyp font-semibold text-xl">
               Price: {price}$
             </p>
+            <button className="bg-purpleBg rounded-[32px] px-6 py-3 text-white font-medium text-lg mt-4 xl:max-w-[14%] hover:bg-purple-500 transition duration-300">Add To Cart</button>
           </div>
           {/* Info Div */}
 

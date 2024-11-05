@@ -5,7 +5,8 @@ import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { useContext } from "react";
 import { CartContext } from "../Utils/manageCartContext";
-
+import { toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetail = () => {
   const { product_id } = useParams();
@@ -16,25 +17,66 @@ const ProductDetail = () => {
   );
 
   // Using Wishlist Context here
-  const {addToWishlist} = useContext(CartContext);
+  const { addToWishlist, getWishProduct } = useContext(CartContext);
   // Using Wishlist Context here
+
+  // Checking if the product is already in the wishlist
+  const checkingWishlist = getWishProduct.find(
+    (product) => product.product_id === findProducts.product_id
+  );
 
   // Handle Add To Wishlist Button Function
   const handleAddToWishlist = () => {
-    addToWishlist(findProducts);
-    navigate("/dashboard/wishlist")
-  }
+    if (!checkingWishlist) {
+      addToWishlist(findProducts);
+      navigate("/dashboard/wishlist");
+      toast.success("Product Successfully added in Wishlist", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    } else {
+      toast.error("This product is already in the Wishlist!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
+  };
   // Handle Add To Wishlist Button Function
 
   // Using Cart Context here
-  const {addToCart} = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   // Using Cart Context here
 
   // Handle Add to cart Button Function
   const handleAddToCart = () => {
     addToCart(findProducts);
-    navigate("/dashboard/cart")
-  }
+    navigate("/dashboard/cart");
+    toast.success("Product Successfully added in Cart", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    })
+  };
   // Handle Add to cart Button Function
 
   // Use Navigate to navigate to cart and wishlist by clicking their buttons
@@ -69,7 +111,11 @@ const ProductDetail = () => {
         <div className="flex gap-16">
           {/* Image Div */}
           <div className="w-[]">
-            <img className="h-[500px] w-[400px] object-contain" src={product_image} alt="" />
+            <img
+              className="h-[500px] w-[400px] object-contain"
+              src={product_image}
+              alt=""
+            />
           </div>
           {/* Image Div */}
 
@@ -77,14 +123,28 @@ const ProductDetail = () => {
           <div className="xl:w-[55%]">
             {/* Header and other Info Div */}
             <div>
-              <h1 className="text-black text-3xl font-semibold mb-3">{product_title}</h1>
-              <p className="font-semibold text-xl text-grayEightyp mb-4">Price: {price}$</p>
+              <h1 className="text-black text-3xl font-semibold mb-3">
+                {product_title}
+              </h1>
+              <p className="font-semibold text-xl text-grayEightyp mb-4">
+                Price: {price}$
+              </p>
               {/* Availability Div */}
               <div className="bg-greenTenp rounded-[32px] py-2 px-4 xl:max-w-[18%] text-center mb-4">
-                <p className={availability ? "text-green font-medium text-sm" : "text-red-700 font-medium text-sm"}>{availability ? "In Stock" : "Out Of Stock"}</p>
+                <p
+                  className={
+                    availability
+                      ? "text-green font-medium text-sm"
+                      : "text-red-700 font-medium text-sm"
+                  }
+                >
+                  {availability ? "In Stock" : "Out Of Stock"}
+                </p>
               </div>
               {/* Availability Div */}
-              <p className="font-normal text-lg text-graySixtyp mb-4">{description}</p>
+              <p className="font-normal text-lg text-graySixtyp mb-4">
+                {description}
+              </p>
             </div>
             {/* Header and other Info Div */}
 
@@ -99,7 +159,10 @@ const ProductDetail = () => {
               <div className="ml-8 mb-4">
                 <ul>
                   {specification.map((spec, idx) => (
-                    <li className="list-decimal font-normal text-lg text-graySixtyp" key={idx}>
+                    <li
+                      className="list-decimal font-normal text-lg text-graySixtyp"
+                      key={idx}
+                    >
                       {spec}
                     </li>
                   ))}
@@ -153,7 +216,10 @@ const ProductDetail = () => {
             {/* Addtocart Button and Wishlist button */}
             <div className="flex gap-4">
               {/* Add To Cart Button */}
-              <button onClick={handleAddToCart} className="flex items-center gap-2 bg-purpleBg rounded-[32px] px-5 py-2 xl:max-w-[32%] hover:cursor-pointer hover:bg-purple-500 transition duration-300 text-white font-bold text-lg">
+              <button
+                onClick={handleAddToCart}
+                className="flex items-center gap-2 bg-purpleBg rounded-[32px] px-5 py-2 xl:max-w-[32%] hover:cursor-pointer hover:bg-purple-500 transition duration-300 text-white font-bold text-lg"
+              >
                 {/* Button */}
                 Add To Cart
                 {/* Button */}
@@ -166,7 +232,14 @@ const ProductDetail = () => {
               {/* Add To Cart Button */}
 
               {/* Wishlist Button */}
-              <button onClick={handleAddToWishlist} className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
+              <button
+                onClick={handleAddToWishlist}
+                className={
+                  checkingWishlist
+                    ? "disabled p-3 bg-white text-gray-300 rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2"
+                    : "p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2"
+                }
+              >
                 <FaRegHeart></FaRegHeart>
               </button>
               {/* Wishlist Button */}

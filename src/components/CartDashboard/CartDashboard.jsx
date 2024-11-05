@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../Utils/manageCartContext";
 import { GrSort } from "react-icons/gr";
 import CartCards from "../CartCards/CartCards";
@@ -14,6 +14,10 @@ const CartDashboard = () => {
   );
   // Calculating the total price of the cart
 
+  // Creating a state to hold the totalPrice so that the modal shows
+  const [showPrice, setShowPrice] = useState(0);  
+  // Creating a state to hold the totalPrice so that the modal shows  
+
   // Sorting the Cart here
   const handlePriceSort = () => {
     const prevArrayCopy = [...getProduct];
@@ -24,12 +28,16 @@ const CartDashboard = () => {
 
   // Clearing the cart and Navigating to home
   const navigate = useNavigate();
-  const handleClearingCart = () => {
-    clearCart();
+  const handleNavigate = () => {
     navigate("/");
+  }
+  const handleClearingCart = () => {
+    setShowPrice(totalPrice);
+    document.getElementById("purchaseModal").showModal()
+    clearCart();
   };
   // Clearing the cart and Navigating to home
-  
+
   return (
     <div className="xl:max-w-[80%] mx-auto mt-12 mb-8">
       {/* Header and other info Div */}
@@ -67,7 +75,7 @@ const CartDashboard = () => {
             <button
               onClick={() => {
                 if (getProduct.length > 0) {
-                  document.getElementById("purchaseModal").showModal();
+                    handleClearingCart();
                 }
               }}
               className={
@@ -93,12 +101,12 @@ const CartDashboard = () => {
                   You have bought your desired goods. It was a pleasure to have
                   served you. Please visit us again for more amazing gadgets!
                 </p>
-                <p>Total Cost: {totalPrice}$</p>
+                <p>Total Cost: {showPrice}$</p>
                 <p className="font-bold text-lg mt-4">Payment Successfull!</p>
                 <div className="modal-action">
                   <form method="dialog">
                     {/* if there is a button in form, it will close the modal */}
-                    <button onClick={handleClearingCart} className="btn">
+                    <button onClick={handleNavigate} className="btn">
                       Close
                     </button>
                   </form>
