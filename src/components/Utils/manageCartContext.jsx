@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
 // Creating Context for managing products
 const CartContext = createContext();
@@ -10,6 +11,17 @@ const CartProvider = ({children}) => {
 
     // Also need a function to add new products in the cart along with previous products
     const addToCart = (product) => {
-        setGetProduct(...getProduct, product);
+        setGetProduct((pastProducts) => [...pastProducts, product]);
     }
+
+    return (
+        <CartContext.Provider value={{addToCart, getProduct}}>
+            {children}
+        </CartContext.Provider>
+    )
+}
+
+export {CartContext, CartProvider}
+CartProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 }

@@ -3,7 +3,9 @@ import { FaRegStar } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
-import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../Utils/manageCartContext";
+
 
 const ProductDetail = () => {
   const { product_id } = useParams();
@@ -13,16 +15,15 @@ const ProductDetail = () => {
     (product) => product.product_id === idInt
   );
 
-  // State for storing the product_id
-  const [getProductId, setGetProductId] = useState([]);
-  console.log(getProductId);
+  // Using Context here
+  const {addToCart} = useContext(CartContext);
+  console.log(addToCart);
   // Handle Add to cart Button Function
   const handleAddToCart = () => {
-    setGetProductId(findProducts);
+    addToCart(findProducts);
   }
   // Handle Add to cart Button Function
   const {
-    product_id: productId,
     product_image,
     product_title,
     price,

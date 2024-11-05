@@ -1,4 +1,9 @@
+import { useState } from "react";
+import CartDashboard from "../CartDashboard/CartDashboard";
+import WishlistDashboard from "../WishlistDashboard/WishlistDashboard";
+
 const Dashboard = () => {
+  const [activeButton, setActiveButton] = useState("cart");
   return (
     <div>
       <div className="bg-purpleBg mt-6 text-center">
@@ -15,12 +20,12 @@ const Dashboard = () => {
         {/* Dashboard Header Div */}
         {/* Buttons Div */}
         <div className="flex gap-6 justify-center pb-8">
-          <button>Cart</button>
-          <button>Wishlist</button>
+          <button className={activeButton === "cart" ? "bg-white text-purpleBg font-extrabold text-lg py-3 px-16 rounded-[32px] hover:bg-purple-200 transition duration-300" : "text-white font-medium text-lg border-2 border-white rounded-[32px] py-3 px-16 hover:bg-purple-200 transition duration-300"} onClick={() => setActiveButton("cart")}>Cart</button>
+          <button className={activeButton === "wishlist" ? "bg-white text-purpleBg font-extrabold text-lg py-3 px-16 rounded-[32px] hover:bg-purple-200 transition duration-300" : "text-white font-medium text-lg border-2 border-white rounded-[32px] py-3 px-16 hover:bg-purple-200 transition duration-300"} onClick={() => setActiveButton("wishlist")}>Wishlist</button>
         </div>
         {/* Buttons Div */}
       </div>
-      
+      {activeButton === "cart" ? <CartDashboard></CartDashboard> : <WishlistDashboard></WishlistDashboard>}
     </div>
   );
 };
