@@ -30,7 +30,7 @@ const ProductDetail = () => {
     if (!checkingWishlist) {
       addToWishlist(findProducts);
       navigate("/dashboard/wishlist");
-      toast.success("Product Successfully added in Wishlist", {
+      toast.success("Product successfully added in Wishlist", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -65,7 +65,7 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     addToCart(findProducts);
     navigate("/dashboard/cart");
-    toast.success("Product Successfully added in Cart", {
+    toast.success("Product successfully added in Cart", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -92,7 +92,7 @@ const ProductDetail = () => {
     rating,
   } = findProducts;
   return (
-    <div className="mt-8 bg-purpleBg relative">
+    <div className="mt-8 bg-purpleBg relative mb-96">
       {/* Product Details Header */}
       <div className="pt-8 text-center xl:max-w-[70%] mx-auto pb-52">
         <h1 className="font-bold text-3xl text-white mb-4">Product Details</h1>

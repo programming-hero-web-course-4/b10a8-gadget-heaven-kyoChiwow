@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import PropTypes from "prop-types";
@@ -106,21 +106,25 @@ const NavBar = ({ checkHome }) => {
         {/* Navbar Cart and Wishlist icons */}
         <div className="flex items-center gap-4">
           {/* cart */}
+          <Link to="/dashboard/cart">
           <button className="indicator p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
             <span className="indicator-item badge badge-secondary">
               {getProduct.length}
             </span>
             <BsCart3></BsCart3>
           </button>
+          </Link>
           {/* cart */}
 
           {/* Wishlist */}
+          <Link to="/dashboard/wishlist">
           <button className="indicator p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
             <span className="indicator-item badge badge-secondary">
               {getWishProduct.length}
             </span>
             <FaRegHeart></FaRegHeart>
           </button>
+          </Link>
           {/* Wishlist */}
         </div>
         {/* Navbar Cart and Wishlist icons */}
