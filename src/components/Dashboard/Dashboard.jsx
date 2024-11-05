@@ -1,7 +1,7 @@
 const Dashboard = () => {
   return (
-    <div className="bg-purpleBg mt-6 text-center">
-      <div>
+    <div>
+      <div className="bg-purpleBg mt-6 text-center">
         {/* Dashboard Header Div */}
         <div className="pt-8 lg:max-w-[60%] mx-auto">
           <h1 className="text-white font-bold text-4xl mb-4">Dashboard</h1>
@@ -20,6 +20,7 @@ const Dashboard = () => {
         </div>
         {/* Buttons Div */}
       </div>
+      
     </div>
   );
 };

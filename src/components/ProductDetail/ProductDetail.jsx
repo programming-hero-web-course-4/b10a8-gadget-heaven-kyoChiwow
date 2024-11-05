@@ -3,6 +3,7 @@ import { FaRegStar } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
+import { useState } from "react";
 
 const ProductDetail = () => {
   const { product_id } = useParams();
@@ -11,7 +12,17 @@ const ProductDetail = () => {
   const findProducts = productData.find(
     (product) => product.product_id === idInt
   );
+
+  // State for storing the product_id
+  const [getProductId, setGetProductId] = useState([]);
+  console.log(getProductId);
+  // Handle Add to cart Button Function
+  const handleAddToCart = () => {
+    setGetProductId(findProducts);
+  }
+  // Handle Add to cart Button Function
   const {
+    product_id: productId,
     product_image,
     product_title,
     price,
@@ -124,7 +135,7 @@ const ProductDetail = () => {
             {/* Addtocart Button and Wishlist button */}
             <div className="flex gap-4">
               {/* Add To Cart Button */}
-              <button className="flex items-center gap-2 bg-purpleBg rounded-[32px] px-5 py-2 xl:max-w-[32%] hover:cursor-pointer hover:bg-purple-500 transition duration-300 text-white font-bold text-lg">
+              <button onClick={handleAddToCart} className="flex items-center gap-2 bg-purpleBg rounded-[32px] px-5 py-2 xl:max-w-[32%] hover:cursor-pointer hover:bg-purple-500 transition duration-300 text-white font-bold text-lg">
                 {/* Button */}
                 Add To Cart
                 {/* Button */}

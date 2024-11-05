@@ -138,7 +138,7 @@ const NavBar = ({ checkHome }) => {
           <div>
             <img
               className="xl:max-h-[620px] w-full rounded-3xl object-cover"
-              src="/public/assets/banner.jpg"
+              src="/assets/banner.jpg"
               alt=""
             />
           </div>
