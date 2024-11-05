@@ -9,13 +9,40 @@ const CartProvider = ({children}) => {
     // Creating state to keep the products
     const [getProduct, setGetProduct] = useState([]);
 
+    // Creating state to keep the Wishlist Products
+    const [getWishProduct, setGetWishProduct] = useState([]);
+
+    // Adding products to Wishlist here
+    const addToWishlist = (product) => {
+        const addingWishlist = [...getWishProduct, product]
+        setGetWishProduct(addingWishlist)
+    }
+
+    // Deleteing From the Wishlist Products
+    const deleteFromWishlist = (id) => {
+        const filterWish = getWishProduct.filter(product => product.product_id !== id)
+        setGetWishProduct(filterWish);
+    }
+
     // Also need a function to add new products in the cart along with previous products
     const addToCart = (product) => {
-        setGetProduct((pastProducts) => [...pastProducts, product]);
+        const addingProduct = [...getProduct, product]
+        setGetProduct(addingProduct);
+    }
+
+    // Deleting the deleted products
+    const deleteFromCart = (id) => {
+        const filterArray = getProduct.filter((product) => product.product_id !== id)
+        setGetProduct(filterArray);
+    }
+
+    // Clearing Cart After Purchase
+    const clearCart = () => {
+        setGetProduct([]);
     }
 
     return (
-        <CartContext.Provider value={{addToCart, getProduct}}>
+        <CartContext.Provider value={{addToCart, getProduct, setGetProduct, deleteFromCart, clearCart, addToWishlist, getWishProduct, deleteFromWishlist}}>
             {children}
         </CartContext.Provider>
     )

@@ -12,17 +12,17 @@ const Root = () => {
   // Checking Dashboard Location
   // Checking Dashboard Location
   return (
-    <div className="pt-7">
-      <div className="min-h-screen flex flex-col">
-        <NavBar checkHome={checkHome}></NavBar>
-        <div className="flex-grow">
-          <CartProvider>
-          <Outlet></Outlet>
-          </CartProvider>
+    <CartProvider>
+      <div className="pt-7">
+        <div className="min-h-screen flex flex-col">
+          <NavBar checkHome={checkHome}></NavBar>
+          <div className="flex-grow">
+            <Outlet></Outlet>
+          </div>
+          <Footer></Footer>
         </div>
-        <Footer></Footer>
       </div>
-    </div>
+    </CartProvider>
   );
 };
 

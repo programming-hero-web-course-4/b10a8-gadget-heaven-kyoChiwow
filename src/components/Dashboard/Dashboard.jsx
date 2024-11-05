@@ -1,9 +1,11 @@
-import { useState } from "react";
 import CartDashboard from "../CartDashboard/CartDashboard";
 import WishlistDashboard from "../WishlistDashboard/WishlistDashboard";
+import { Link, useLocation } from "react-router-dom";
 
 const Dashboard = () => {
-  const [activeButton, setActiveButton] = useState("cart");
+  const location = useLocation();
+  const activeCart = location.pathname === "/dashboard/cart"
+  const activeWishlist = location.pathname === "/dashboard/wishlist"
   return (
     <div>
       <div className="bg-purpleBg mt-6 text-center">
@@ -20,12 +22,17 @@ const Dashboard = () => {
         {/* Dashboard Header Div */}
         {/* Buttons Div */}
         <div className="flex gap-6 justify-center pb-8">
-          <button className={activeButton === "cart" ? "bg-white text-purpleBg font-extrabold text-lg py-3 px-16 rounded-[32px] hover:bg-purple-200 transition duration-300" : "text-white font-medium text-lg border-2 border-white rounded-[32px] py-3 px-16 hover:bg-purple-200 transition duration-300"} onClick={() => setActiveButton("cart")}>Cart</button>
-          <button className={activeButton === "wishlist" ? "bg-white text-purpleBg font-extrabold text-lg py-3 px-16 rounded-[32px] hover:bg-purple-200 transition duration-300" : "text-white font-medium text-lg border-2 border-white rounded-[32px] py-3 px-16 hover:bg-purple-200 transition duration-300"} onClick={() => setActiveButton("wishlist")}>Wishlist</button>
+          <Link to="/dashboard/cart">
+          <button className={activeCart ? "bg-white text-purpleBg font-extrabold text-lg py-3 px-16 rounded-[32px] hover:bg-purple-200 transition duration-300" : "text-white font-medium text-lg border-2 border-white rounded-[32px] py-3 px-16 hover:bg-purple-200 transition duration-300"}>Cart</button>
+          </Link>
+          <Link to="/dashboard/wishlist">
+          <button className={activeWishlist ? "bg-white text-purpleBg font-extrabold text-lg py-3 px-16 rounded-[32px] hover:bg-purple-200 transition duration-300" : "text-white font-medium text-lg border-2 border-white rounded-[32px] py-3 px-16 hover:bg-purple-200 transition duration-300"}>Wishlist</button>
+          </Link>
         </div>
         {/* Buttons Div */}
       </div>
-      {activeButton === "cart" ? <CartDashboard></CartDashboard> : <WishlistDashboard></WishlistDashboard>}
+      {activeCart && (<CartDashboard></CartDashboard>)}
+      {activeWishlist && (<WishlistDashboard></WishlistDashboard>)}
     </div>
   );
 };

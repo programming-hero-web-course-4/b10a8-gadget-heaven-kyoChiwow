@@ -1,8 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { CartContext } from "../Utils/manageCartContext";
 const NavBar = ({ checkHome }) => {
+  const navNavigate = useNavigate();
+  const handleShopNow = () => {
+    navNavigate("/dashboard");
+  };
+  const { getProduct, getWishProduct } = useContext(CartContext);
   const links = (
     <>
       <li className="hover:bg-purple-500 transition duration-300 p-2 rounded-3xl">
@@ -88,24 +95,30 @@ const NavBar = ({ checkHome }) => {
 
         {/* Navbar Menus */}
 
-          {/* Desktop Menus */}
-          <div className="hidden lg:flex">
-            <ul className="flex items-center gap-12">{links}</ul>
-          </div>
-          {/* Desktop Menus */}
+        {/* Desktop Menus */}
+        <div className="hidden lg:flex">
+          <ul className="flex items-center gap-12">{links}</ul>
+        </div>
+        {/* Desktop Menus */}
 
         {/* Navbar Menus */}
 
         {/* Navbar Cart and Wishlist icons */}
         <div className="flex items-center gap-4">
           {/* cart */}
-          <button className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
+          <button className="indicator p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
+            <span className="indicator-item badge badge-secondary">
+              {getProduct.length}
+            </span>
             <BsCart3></BsCart3>
           </button>
           {/* cart */}
 
           {/* Wishlist */}
-          <button className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
+          <button className="indicator p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
+            <span className="indicator-item badge badge-secondary">
+              {getWishProduct.length}
+            </span>
             <FaRegHeart></FaRegHeart>
           </button>
           {/* Wishlist */}
@@ -125,7 +138,10 @@ const NavBar = ({ checkHome }) => {
             next level. From smart devices to the coolest accessories, we have
             it all!
           </p>
-          <button className="bg-white px-8 py-4 rounded-full hover:bg-gray-300 transition duration-300 font-bold text-xl text-purpleBg">
+          <button
+            onClick={handleShopNow}
+            className="bg-white px-8 py-4 rounded-full hover:bg-gray-300 transition duration-300 font-bold text-xl text-purpleBg"
+          >
             Shop Now
           </button>
         </div>

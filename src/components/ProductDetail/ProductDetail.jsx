@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import { BsCart3 } from "react-icons/bs";
@@ -15,14 +15,31 @@ const ProductDetail = () => {
     (product) => product.product_id === idInt
   );
 
-  // Using Context here
+  // Using Wishlist Context here
+  const {addToWishlist} = useContext(CartContext);
+  // Using Wishlist Context here
+
+  // Handle Add To Wishlist Button Function
+  const handleAddToWishlist = () => {
+    addToWishlist(findProducts);
+    navigate("/dashboard/wishlist")
+  }
+  // Handle Add To Wishlist Button Function
+
+  // Using Cart Context here
   const {addToCart} = useContext(CartContext);
-  console.log(addToCart);
+  // Using Cart Context here
+
   // Handle Add to cart Button Function
   const handleAddToCart = () => {
     addToCart(findProducts);
+    navigate("/dashboard/cart")
   }
   // Handle Add to cart Button Function
+
+  // Use Navigate to navigate to cart and wishlist by clicking their buttons
+  const navigate = useNavigate();
+
   const {
     product_image,
     product_title,
@@ -149,7 +166,7 @@ const ProductDetail = () => {
               {/* Add To Cart Button */}
 
               {/* Wishlist Button */}
-              <button className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
+              <button onClick={handleAddToWishlist} className="p-3 bg-white rounded-full hover:bg-gray-400 transition duration-300 text-xl border-2">
                 <FaRegHeart></FaRegHeart>
               </button>
               {/* Wishlist Button */}
