@@ -13,6 +13,7 @@ import CartDashboard from './components/CartDashboard/CartDashboard.jsx';
 import WishlistDashboard from './components/WishlistDashboard/WishlistDashboard.jsx';
 import Statistics from './components/Statistics/Statistics.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import Reviews from './components/Reviews/Reviews.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path:"statistics",
         element: <Statistics></Statistics>
+      },
+      {
+        path: "reviews",
+        element: <Reviews></Reviews>
       },
       {
         path: "allproducts/:product_id",

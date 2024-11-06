@@ -3,6 +3,7 @@ import { CartContext } from "../Utils/manageCartContext";
 import { GrSort } from "react-icons/gr";
 import CartCards from "../CartCards/CartCards";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const CartDashboard = () => {
   const { getProduct, clearCart, setGetProduct } = useContext(CartContext);
@@ -40,6 +41,9 @@ const CartDashboard = () => {
 
   return (
     <div className="xl:max-w-[80%] mx-auto mt-12 mb-8">
+      <Helmet>
+        <title>Cart | Gadget Heaven</title>
+      </Helmet>
       {/* Header and other info Div */}
       <div className="flex justify-between items-center">
         {/* Cart Header Div */}

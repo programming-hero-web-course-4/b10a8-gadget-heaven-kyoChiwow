@@ -1,0 +1,83 @@
+[
+    {
+      "review_id": 1,
+      "customer_name": "Emma Johnson",
+      "product_title": "iPhone 15 Pro",
+      "customer_image": "https://i.ibb.co/3mM3RMb/Female1.png",
+      "review_description": "Absolutely love the iPhone 15 Pro! The camera is stellar, capturing photos with stunning detail, especially in low light. Battery life is solid and the A17 Bionic chip keeps everything smooth. I was hesitant about the price but honestly, it’s worth every penny. Perfect for anyone looking for a reliable, high-end smartphone.",
+      "review_rating": 5
+    },
+    {
+      "review_id": 2,
+      "customer_name": "Daniel Chen",
+      "product_title": "Samsung Galaxy S23 Ultra",
+      "customer_image": "https://i.ibb.co/MgTqKf4/Male1.jpg",
+      "review_description": "The Galaxy S23 Ultra is a powerhouse. The 200MP camera is no joke – photos look professional even in challenging settings. The display is gorgeous, especially for watching videos. Battery life is decent for a device this powerful, and the S Pen is a handy bonus. Highly recommend for those into photography and multitasking.",
+      "review_rating": 5
+    },
+    {
+      "review_id": 3,
+      "customer_name": "Ava Martinez",
+      "product_title": "MacBook Air M2",
+      "customer_image": "https://i.ibb.co/WsVvzD9/Female2.png",
+      "review_description": "The MacBook Air with M2 chip has exceeded my expectations! It’s incredibly lightweight and perfect for working on the go. The battery lasts all day, and performance-wise, it's very impressive for such a compact laptop. Great for students or professionals who need power and portability. Definitely worth the investment.",
+      "review_rating": 5
+    },
+    {
+      "review_id": 4,
+      "customer_name": "Michael Lee",
+      "product_title": "Sony WH-1000XM5",
+      "customer_image": "https://i.ibb.co/PQ51XqZ/Male2.png",
+      "review_description": "These headphones are amazing! The noise cancellation is the best I’ve experienced, and the sound quality is rich and clear. Battery life is superb – they last me a full week on a single charge. Comfortable for long listening sessions, and they look stylish too. Worth every dollar if you value quality audio.",
+      "review_rating": 5
+    },
+    {
+      "review_id": 5,
+      "customer_name": "Sophia Brown",
+      "product_title": "Google Pixel 8 Pro",
+      "customer_image": "https://i.ibb.co/G9PvRtM/Female3.png",
+      "review_description": "The Pixel 8 Pro delivers! The AI features are surprisingly helpful, and the camera is exceptional, producing vibrant and sharp images. Battery life could be a bit better, but overall it’s an amazing device with smooth performance. A solid choice for Android fans who prioritize camera quality.",
+      "review_rating": 4
+    },
+    {
+      "review_id": 6,
+      "customer_name": "Ethan Walker",
+      "product_title": "Apple AirPods Pro 2",
+      "customer_image": "https://i.ibb.co/DtfXqYR/Male3.png",
+      "review_description": "AirPods Pro 2 are a significant upgrade! The noise-canceling works wonders, especially on flights, and sound quality has improved. Battery life is decent, and I love the seamless integration with Apple devices. They’re pricy, but for Apple fans, these are definitely worth it for the convenience and quality.",
+      "review_rating": 5
+    },
+    {
+      "review_id": 7,
+      "customer_name": "Chloe Thompson",
+      "product_title": "Microsoft Surface Pro 9",
+      "customer_image": "https://i.ibb.co/3dPf2Qc/Female4.png",
+      "review_description": "This is such a versatile device! The Surface Pro 9 serves as both a laptop and a tablet, which is perfect for my needs. Performance is smooth for everyday tasks, and the screen is beautiful. The battery could be better, but overall a great buy for those who need flexibility. Highly recommended!",
+      "review_rating": 4
+    },
+    {
+      "review_id": 8,
+      "customer_name": "James Hall",
+      "product_title": "Canon EOS R6 Mark II",
+      "customer_image": "https://i.ibb.co/jJR91B9/Male4.png",
+      "review_description": "This camera is incredible! The image quality is next-level, and it’s fast and responsive. It’s perfect for both photography and video. The price is high, but you really get what you pay for. I’d recommend this for anyone serious about photography – it’s worth the investment.",
+      "review_rating": 5
+    },
+    {
+      "review_id": 9,
+      "customer_name": "Olivia Robinson",
+      "product_title": "Fitbit Versa 4",
+      "customer_image": "https://i.ibb.co/D7rFxbz/Female5.jpg",
+      "review_description": "I love my Fitbit Versa 4! It tracks my workouts accurately and gives insights into my sleep quality. The battery life is great, lasting almost a full week. It’s comfortable to wear and looks nice on my wrist. Ideal for fitness enthusiasts looking for a reliable smartwatch. Highly recommended.",
+      "review_rating": 4
+    },
+    {
+      "review_id": 10,
+      "customer_name": "Noah Evans",
+      "product_title": "ASUS ROG Zephyrus G15",
+      "customer_image": "https://i.ibb.co/g348JYb/Male5.png",
+      "review_description": "Incredible gaming laptop! The ROG Zephyrus G15 handles everything I throw at it. The display is stunning, and performance is top-notch. It’s a bit pricey, but totally worth it for gamers or creatives. Battery life is pretty good too. Couldn’t be happier with this purchase.",
+      "review_rating": 5
+    }
+  ]
+  

@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { CartContext } from "../Utils/manageCartContext";
 import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const ProductDetail = () => {
   const { product_id } = useParams();
@@ -93,6 +94,9 @@ const ProductDetail = () => {
   } = findProducts;
   return (
     <div className="mt-8 bg-purpleBg relative mb-96">
+      <Helmet>
+        <title>Product Detail | Gadget Heaven</title>
+      </Helmet>
       {/* Product Details Header */}
       <div className="pt-8 text-center xl:max-w-[70%] mx-auto pb-52">
         <h1 className="font-bold text-3xl text-white mb-4">Product Details</h1>

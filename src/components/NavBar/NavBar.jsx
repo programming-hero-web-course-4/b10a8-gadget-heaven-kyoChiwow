@@ -66,6 +66,24 @@ const NavBar = ({ checkHome }) => {
           Statistics
         </NavLink>
       </li>
+      <li className="hover:bg-purple-500 transition duration-300 p-2 rounded-3xl">
+        <NavLink
+          to="/reviews"
+          className={({ isActive }) => {
+            if (isActive && checkHome) {
+              return "text-white font-bold text-base underline";
+            } else if (!isActive && checkHome) {
+              return "font-medium no-underline text-base text-white";
+            } else if (isActive && !checkHome) {
+              return "text-purpleBg text-xl font-bold";
+            } else if (!isActive && !checkHome) {
+              return "text-graySixtyp font-medium text-base";
+            }
+          }}
+        >
+          Reviews
+        </NavLink>
+      </li>
     </>
   );
   return (

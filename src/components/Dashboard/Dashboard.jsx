@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import CartDashboard from "../CartDashboard/CartDashboard";
 import WishlistDashboard from "../WishlistDashboard/WishlistDashboard";
 import { Link, useLocation } from "react-router-dom";
@@ -8,6 +9,10 @@ const Dashboard = () => {
   const activeWishlist = location.pathname === "/dashboard/wishlist"
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | Gadget Heaven</title>
+        <link rel="icon" href="/assets/favicon-16x16.png" />
+      </Helmet>
       <div className="bg-purpleBg mt-6 text-center">
         {/* Dashboard Header Div */}
         <div className="pt-8 lg:max-w-[60%] mx-auto">
